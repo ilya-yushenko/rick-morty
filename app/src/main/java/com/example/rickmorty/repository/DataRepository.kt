@@ -4,5 +4,6 @@ import com.example.rickmorty.model.CharacterResponse
 
 interface DataRepository {
 
-    suspend fun getCharacters(): List<CharacterResponse>
+    suspend fun getCharacters(name: String): List<CharacterResponse>
+    suspend fun getDetails(id: Int): CharacterResponse
 }

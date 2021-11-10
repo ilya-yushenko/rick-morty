@@ -18,8 +18,6 @@ data class CharacterResponse(
     val location: LocationResponse,
     @SerializedName("name")
     val name: String,
-    @SerializedName("origin")
-    val origin: OriginResponse,
     @SerializedName("species")
     val species: String,
     @SerializedName("status")

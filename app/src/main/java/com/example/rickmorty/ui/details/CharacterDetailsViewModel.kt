@@ -1,4 +1,4 @@
-package com.example.rickmorty.ui.characters
+package com.example.rickmorty.ui.details
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -11,20 +11,16 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
-class CharactersViewModel @Inject constructor(
+class CharacterDetailsViewModel @Inject constructor(
     private val repository: DataRepository
 ) : ViewModel() {
 
-    val characters = MutableLiveData<List<Character>?>()
+    val character = MutableLiveData<Character?>()
 
-    init {
-        getCharacters("")
-    }
-
-    fun getCharacters(name: String) {
+    fun loadData(id: Int) {
         viewModelScope.launch {
-            characters.value = withContext(Dispatchers.IO) {
-                repository.getCharacters(name).map { it.toCharacter() }
+            character.value = withContext(Dispatchers.IO) {
+                repository.getDetails(id).toCharacter()
             }
         }
     }
