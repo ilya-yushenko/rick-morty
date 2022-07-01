@@ -5,5 +5,5 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
-rootProject.name = "Rick&Morty"
-include ':app'
+rootProject.name = "rick-morty"
+include(":app")
